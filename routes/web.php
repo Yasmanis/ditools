@@ -22,3 +22,5 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+Route::get('/api/process', [\App\Http\Controllers\ProcessController::class, 'handleProcess']);
