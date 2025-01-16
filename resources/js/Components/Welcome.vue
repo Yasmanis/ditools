@@ -33,15 +33,17 @@ export default {
                 try {
                     const response = await axios.get("/api/process");
                     const serverName = response.headers["server"];
-                    console.log(response.headers)
+                    const header = response.headers["responseof"];
                     const result = response.data;
 
                     logs.value.push(
-                        `Header ${result.cabecera}, Consulta N°${result.query_no}, Duración: ${result.duration}ms, Resultado: ${result.status}, Mensaje: ${result.message}, Procesado en servidor: ${serverName}`
+                        `Header: ${header}, Consulta N°${result.query_no}, Duración: ${result.duration}ms, Resultado: ${result.status}, Mensaje: ${result.message}, Procesado en servidor: ${serverName}`
                     );
                 } catch (error) {
+                    const header = response.headers["responseof"];
+                    const serverName = response.headers["server"];
                     logs.value.push(
-                        `Error: ${error.message}, al realizar la consulta.`
+                        `Header: ${header}, Server: ${serverName}, Error: ${error.message}, al realizar la consulta.`
                     );
                 }
             }, 2000);
