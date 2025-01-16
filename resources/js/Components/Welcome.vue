@@ -36,7 +36,7 @@ export default {
                     const result = response.data;
 
                     logs.value.push(
-                        `Consulta N°${result.query_no}, Duración: ${result.duration}ms, Resultado: ${result.status}, Mensaje: ${result.message}, Procesado en servidor: ${serverName}`
+                        `Header ${result.cabecera}, Consulta N°${result.query_no}, Duración: ${result.duration}ms, Resultado: ${result.status}, Mensaje: ${result.message}, Procesado en servidor: ${serverName}`
                     );
                 } catch (error) {
                     logs.value.push(

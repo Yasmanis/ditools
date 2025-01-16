@@ -25,7 +25,7 @@ class ProcessController extends Controller
             usleep(500000); // 500ms
 
             $endTime = microtime(true);
-            $responseOfHeader = $request->header('responseof');
+            $responseOfHeader = $request->header('Responseof');
 
             return response()->json([
                 'query_no' => mt_rand(1, 1000), // Simula un número de consulta.
