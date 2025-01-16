@@ -37,13 +37,13 @@ export default {
                     const result = response.data;
                     console.log(response.headers)
 
-                    logs.value.push(
+                    logs.value.unshift(
                         `Header: ${header}, Consulta N°${result.query_no}, Duración: ${result.duration}ms, Resultado: ${result.status}, Mensaje: ${result.message}, Procesado en servidor: ${serverName}`
                     );
                 } catch (error) {
                     const header = response.headers["responseof"];
                     const serverName = response.headers["server"];
-                    logs.value.push(
+                    logs.value.unshift(
                         `Header: ${header}, Server: ${serverName}, Error: ${error.message}, al realizar la consulta.`
                     );
                 }
