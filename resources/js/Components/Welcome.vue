@@ -35,6 +35,7 @@ export default {
                     const serverName = response.headers["server"];
                     const header = response.headers["responseof"];
                     const result = response.data;
+                    console.log(response.headers)
 
                     logs.value.push(
                         `Header: ${header}, Consulta N°${result.query_no}, Duración: ${result.duration}ms, Resultado: ${result.status}, Mensaje: ${result.message}, Procesado en servidor: ${serverName}`
