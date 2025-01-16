@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class ProcessController extends Controller
 {
-    public function handleProcess()
+    public function handleProcess(Request $request)
     {
         try {
             $startTime = microtime(true);
@@ -25,12 +25,14 @@ class ProcessController extends Controller
             usleep(500000); // 500ms
 
             $endTime = microtime(true);
+            $responseOfHeader = $request->header('responseof');
 
             return response()->json([
                 'query_no' => mt_rand(1, 1000), // Simula un número de consulta.
                 'duration' => round(($endTime - $startTime) * 1000), // Tiempo en ms.
                 'status' => 'ok',
                 'message' => 'Consultas ejecutadas correctamente.',
+                'cabecera' => $responseOfHeader,
                 'data' => $data,
             ])->header('Server', gethostname());
         } catch (\Exception $e) {
