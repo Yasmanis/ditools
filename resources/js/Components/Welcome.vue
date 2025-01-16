@@ -33,6 +33,7 @@ export default {
                 try {
                     const response = await axios.get("/api/process");
                     const serverName = response.headers["server"];
+                    console.log(response.headers)
                     const result = response.data;
 
                     logs.value.push(
